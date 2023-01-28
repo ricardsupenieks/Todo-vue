@@ -4,24 +4,73 @@
 
             <h1 class="text-5xl font-bold text-white text-center rounded-lg">todo list</h1>
 
-            <div class="text-white flex flex-row justify-center gap-2 text-lg">
+            <div 
+                v-if="state.filter === 'all'"
+                class="text-white flex flex-row justify-center gap-2 text-lg"
+                >
                 <button
-                    class="focus:shadow-2xl focus:underline decoration-2"
+                    class="focus:shadow-2xl underline decoration-2"
                     @click="state.filter = 'all'"
                 >
                     All
                 </button>
 
                 <button
-                    class="focus:shadow-2xl focus:underline decoration-2"
                     @click="state.filter = 'active'"
                 >
                     Active
                 </button>
 
                 <button
-                    class="focus:shadow-2xl focus:underline decoration-2"
                     @click="state.filter = 'completed'"
+                >
+                    Completed
+                </button>
+            </div>
+
+            <div 
+                v-if="state.filter === 'active'"
+                class="text-white flex flex-row justify-center gap-2 text-lg"
+                >
+                <button
+                    @click="state.filter = 'all'"
+                >
+                    All
+                </button>
+
+                <button
+                    @click="state.filter = 'active'"
+                    class="focus:shadow-2xl underline decoration-2"
+                >
+                    Active
+                </button>
+
+                <button
+                    @click="state.filter = 'completed'"
+                >
+                    Completed
+                </button>
+            </div>
+
+            <div 
+                v-if="state.filter === 'completed'"
+                class="text-white flex flex-row justify-center gap-2 text-lg"
+                >
+                <button
+                    @click="state.filter = 'all'"
+                >
+                    All
+                </button>
+
+                <button
+                    @click="state.filter = 'active'"
+                >
+                    Active
+                </button>
+
+                <button
+                    @click="state.filter = 'completed'"
+                    class="focus:shadow-2xl underline decoration-2"
                 >
                     Completed
                 </button>
@@ -36,7 +85,6 @@
                     maxlength="50"
                     @keyup.enter="addTodo()"
                     />
-                   
             </div>
 
             <div class="mt-10 max-h-52 overflow-auto">
@@ -44,7 +92,7 @@
                     v-if="state.filter === 'all'"
                     v-for="(todo, index) in state.todos"
                     :key="index"
-                    class="bg-opacity-80 bg-white"
+                    class="bg-opacity-80 bg-white rounded"
                     >
                         <div class="p-1 text-stone-700 flex flex-row justify-between gap-3">
 
@@ -56,7 +104,7 @@
                     v-if="state.filter === 'active'"
                     v-for="(todo, index) in activeTasks"
                     :key="index"
-                    class="bg-opacity-80 bg-white"
+                    class="bg-opacity-80 bg-white rounded"
                     >
                         <div 
                             class="p-1 text-stone-700 flex flex-row justify-between gap-3 cursor-pointer"
@@ -70,7 +118,7 @@
                     v-if="state.filter === 'completed'"
                     v-for="(todo, index) in completedTasks"
                     :key="index"
-                    class="bg-opacity-80 bg-white"
+                    class="bg-opacity-80 bg-white rounded"
                     >
                         <div 
                             class="p-1 text-stone-700 flex flex-row justify-between gap-3 cursor-pointer"
@@ -107,7 +155,7 @@ const state = reactive({
     filter: "all",
 });
 
-const completedTasks = computed(() => {
+const completedTasks = computed((): Todo[] => {
     const tasks: Todo[] = [];
 
     state.todos.forEach(todo => {
@@ -119,7 +167,7 @@ const completedTasks = computed(() => {
     return tasks;
 });
 
-const activeTasks = computed(() => {
+const activeTasks = computed((): Todo[] => {
     const tasks: Todo[] = [];
 
     state.todos.forEach(todo => {
@@ -131,7 +179,7 @@ const activeTasks = computed(() => {
     return tasks;
 });
 
-function addTodo() {
+function addTodo(): void {
     const newTodo = {
         task: state.todo,
         isCompleted: false 
@@ -140,7 +188,7 @@ function addTodo() {
     state.todo="";
 };
 
-function deleteTodo(index: number) {
+function deleteTodo(index: number): void {
     state.todos.splice(index, 1);
     state.todo="";
 };
