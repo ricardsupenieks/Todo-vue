@@ -10,7 +10,7 @@
                     All
                 </button>
 
-                <button @click="state.filter = 'active'"> 
+                <button @click="state.filter = 'active'">
                     Active
                 </button>
 
@@ -54,9 +54,9 @@
             </div>
 
             <div class="mt-10 max-h-52 overflow-auto">
-                <div v-for="(todo, index) in filteredTasks" :key="index"
-                    class="bg-opacity-80 bg-white rounded">
-                    <div class="p-1 text-stone-700 flex flex-row justify-between gap-3">
+                <div v-for="(todo, index) in filteredTasks" :key="index" class="bg-opacity-80 bg-white rounded">
+                    <div class="p-1 px-2 text-stone-700 flex flex-row justify-between gap-3 cursor-pointer"
+                        @click="todo.isCompleted = !todo.isCompleted">
 
                         <TodoItem :index="index" :task="todo.task" @deleteTodo="deleteTodo(index)" />
                     </div>
@@ -76,6 +76,8 @@ interface Todo {
     isCompleted: boolean;
 };
 
+type Filter = "all" | "active" | "completed";
+
 const state = reactive({
     todos: [
         {
@@ -86,15 +88,15 @@ const state = reactive({
 
     todo: "",
 
-    filter: "all",
+    filter: "all" as Filter,
 });
 
 const filteredTasks = computed((): Todo[] => {
-    switch(state.filter) {
+    switch (state.filter) {
         case 'completed':
             return state.todos.filter(todo => todo.isCompleted);
         case 'active':
-            return state.todos.filter(todo => !todo.isCompleted); 
+            return state.todos.filter(todo => !todo.isCompleted);
     }
     return state.todos;
 })
