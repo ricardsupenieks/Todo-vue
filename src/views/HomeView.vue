@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col h-screen place-items-center">
-        <div class="border-8 p-16 items-center m-auto shadow-lg h-[530px]"
+        <div class="border-8 p-16 items-center m-auto shadow-lg h-[530px] w-[500px]"
             style="background-image: url(https://i.gifer.com/origin/7c/7c3b7a0f3dec2723c1be12064a5002bc.gif);">
 
             <h1 class="text-5xl font-bold text-white text-center rounded-lg">todo list</h1>
@@ -55,10 +55,10 @@
 
             <div class="mt-10 max-h-52 overflow-auto">
                 <div v-for="(todo, index) in filteredTasks" :key="index" class="bg-opacity-80 bg-white rounded">
-                    <div class="p-1 px-2 text-stone-700 flex flex-row justify-between gap-3 cursor-pointer"
-                        @click="todo.isCompleted = !todo.isCompleted">
+                    <div class="p-1 px-2 text-stone-700 cursor-pointer">
+                        <!-- @click="todo.isCompleted = !todo.isCompleted"> -->
 
-                        <TodoItem :index="index" :task="todo.task" @deleteTodo="deleteTodo(index)" />
+                        <TodoItem :index="index" :task="todo.task" @deleteTask="deleteTodo(index)" @updateTask="(newValue) => (todo.task = newValue)" />
                     </div>
                 </div>
             </div>
