@@ -1,46 +1,25 @@
-# Todo-vue
+# Todo List site
 
-This template should help get you started developing with Vue 3 in Vite.
+## Desciption
+Small project aimed at learning some of the basics of VueJS
 
-## Recommended IDE Setup
+## Features
+* Adding a task to the todo list
+* Marking task as completed
+* Task filtering
+* Task editing
+* Deleting tasks
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Demo
 
-## Type Support for `.vue` Imports in TS
+### The page
+![](https://github.com/ricardsupenieks/Todo-vue/blob/main/demo/main.png)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### Adding a task to the list
+![](https://github.com/ricardsupenieks/Todo-vue/blob/main/demo/adding.gif)
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### Editing a task
+![](https://github.com/ricardsupenieks/Todo-vue/blob/main/demo/editing.gif)
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+### Task filtering and deleting
+![](https://github.com/ricardsupenieks/Todo-vue/blob/main/demo/filtering.gif)
