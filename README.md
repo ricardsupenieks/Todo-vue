@@ -14,7 +14,7 @@ Small project aimed at learning some of the basics of VueJS
 * <a href="https://vuejs.org/">VueJS</a>
 
 ## Installation
-1. Clone this repozitory
+1. Clone this repository
 2. Run <code>$ npm install</code>
 3. Run either dev <code>$ npm run dev</code> or build <code>$ npm run build</code> server
 
