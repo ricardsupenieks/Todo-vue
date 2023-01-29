@@ -1,4 +1,4 @@
-# Todo List
+# Todo Vue
 
 ## Desciption
 Small project aimed at learning some of the basics of VueJS
