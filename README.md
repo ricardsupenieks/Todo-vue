@@ -10,6 +10,14 @@ Small project aimed at learning some of the basics of VueJS
 * Task editing
 * Deleting tasks
 
+## Implemented technologies:
+* <a href="https://vuejs.org/">VueJS</a>
+
+## Installation
+1. Clone this repozitory
+2. Run <code>$ npm install</code>
+3. Run either dev <code>$ npm run dev</code> or build <code>$ npm run build</code> server
+
 ## Demo
 
 ### The page
