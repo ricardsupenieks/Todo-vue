@@ -49,11 +49,11 @@
 
             <div class="relative mt-4">
                 <input type="text" v-model="state.todo"
-                    class="block w-full p-3 border-2 bg-opacity-80 rounded-lg bg-white shadow-xl outline-none text-stone-700"
+                    class="block w-full p-2 border-2 bg-opacity-80 rounded-lg bg-white shadow-xl outline-none text-stone-700"
                     placeholder="Add todo..." maxlength="26" @keyup.enter="addTodo()" />
             </div>
 
-            <div class="mt-10 max-h-52 overflow-auto rounded">
+            <div class="mt-10 max-h-52 overflow-auto rounded scrollbar">
                 <div v-for="(todo, index) in filteredTasks" :key="index" class="bg-opacity-80 bg-white">
                     <div class="p-1 px-2 text-stone-700">
                         <TodoItem :index="index" :task="todo.task" :isCompleted="todo.isCompleted"
@@ -81,7 +81,7 @@ type Filter = "all" | "active" | "completed";
 const state = reactive({
     todos: [
         {
-            task: "Make todo list",
+            task: "Make a todo list",
             isCompleted: false,
         }
     ] as Todo[],

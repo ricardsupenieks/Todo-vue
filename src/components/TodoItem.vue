@@ -4,8 +4,9 @@
             {{ index + 1}}
         </div>
         <div class="ml-5">
-            <input type="text" v-if="isEdited" v-model="newEditValue" class="bg-transparent w-[189px]" maxlength="26"/>
-            <p v-else @click="onComplete" class="cursor-pointer whitespace-nowrap">{{ task }}</p>
+            <input type="text" v-if="isEdited" v-model="newEditValue" class="bg-transparent w-[189px] outline-none underline underline-offset-4" maxlength="26"/>
+            <p v-else-if="isCompleted" @click="onComplete" class="cursor-pointer whitespace-nowrap line-through decoration-2">{{ task }}</p>
+            <p v-else-if="!isCompleted" @click="onComplete" class="cursor-pointer whitespace-nowrap">{{ task }}</p>
         </div>
         <div class="flex flex-row w-full justify-end gap-2">
             <button v-if="!isEdited" @click="isEdited = true" class="">Edit</button>
