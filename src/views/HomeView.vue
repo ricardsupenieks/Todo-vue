@@ -3,9 +3,9 @@
         <div class="border-8 p-16 items-center m-auto shadow-lg h-[530px] w-[500px]"
             style="background-image: url(https://i.gifer.com/origin/7c/7c3b7a0f3dec2723c1be12064a5002bc.gif);">
 
-            <h1 class="text-5xl font-bold text-white text-center rounded-lg">todo list</h1>
+            <h1 class="text-5xl font-bold text-white text-center rounded-lg subpixel-antialiased	">todo list</h1>
 
-            <div v-if="state.filter === 'all'" class="text-white flex flex-row justify-center gap-2 text-lg">
+            <div v-if="state.filter === 'all'" class="text-white flex flex-row justify-center gap-2 text-lg subpixel-antialiased">
                 <button class="focus:shadow-2xl underline decoration-2" @click="state.filter = 'all'">
                     All
                 </button>
@@ -19,7 +19,7 @@
                 </button>
             </div>
 
-            <div v-if="state.filter === 'active'" class="text-white flex flex-row justify-center gap-2 text-lg">
+            <div v-if="state.filter === 'active'" class="text-white flex flex-row justify-center gap-2 text-lg subpixel-antialiased">
                 <button @click="state.filter = 'all'">
                     All
                 </button>
@@ -33,7 +33,7 @@
                 </button>
             </div>
 
-            <div v-if="state.filter === 'completed'" class="text-white flex flex-row justify-center gap-2 text-lg">
+            <div v-if="state.filter === 'completed'" class="text-white flex flex-row justify-center gap-2 text-lg subpixel-antialiased">
                 <button @click="state.filter = 'all'">
                     All
                 </button>
@@ -50,15 +50,15 @@
             <div class="relative mt-4">
                 <input type="text" v-model="state.todo"
                     class="block w-full p-3 border-2 bg-opacity-80 rounded-lg bg-white shadow-xl outline-none text-stone-700"
-                    placeholder="Add todo..." maxlength="50" @keyup.enter="addTodo()" />
+                    placeholder="Add todo..." maxlength="26" @keyup.enter="addTodo()" />
             </div>
 
-            <div class="mt-10 max-h-52 overflow-auto">
-                <div v-for="(todo, index) in filteredTasks" :key="index" class="bg-opacity-80 bg-white rounded">
-                    <div class="p-1 px-2 text-stone-700 cursor-pointer">
-                        <!-- @click="todo.isCompleted = !todo.isCompleted"> -->
-
-                        <TodoItem :index="index" :task="todo.task" @deleteTask="deleteTodo(index)" @updateTask="(newValue) => (todo.task = newValue)" />
+            <div class="mt-10 max-h-52 overflow-auto rounded">
+                <div v-for="(todo, index) in filteredTasks" :key="index" class="bg-opacity-80 bg-white">
+                    <div class="p-1 px-2 text-stone-700">
+                        <TodoItem :index="index" :task="todo.task" :isCompleted="todo.isCompleted"
+                            @deleteTask="deleteTodo(index)" @updateTask="(newValue) => (todo.task = newValue)"
+                            @changeTaskState="(newValue) => (todo.isCompleted = newValue)" />
                     </div>
                 </div>
             </div>
